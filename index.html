@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p><h1>Challenge 12</h1></p>
+    <SCript>
+        const game = {
+    team1: 'Bayern Munich',
+    team2: 'Borrussia Dortmund',
+    players: [
+        [
+            'Neuer',
+            'Pavard',
+            'Martinez',
+            'Alaba',
+            'Davies',
+            'Kimmich',
+            'Goretzka',
+            'Coman',
+            'Muller',
+            'Gnarby',
+            'Lewandowski',
+        ],
+        [
+            'Burki',
+            'Schulz',
+            'Hummels',
+            'Akanji',
+            'Hakimi',
+            'Weigl',
+            'Witsel',
+            'Hazard',
+            'Brandt',
+            'Sancho',
+            'Gotze',
+        ],
+    ],
+    score: '4:0',
+    scored: ['Lewandowski', 'Gnarby', 'Lewandowski', 'Hummels'],
+    date: 'Nov 9th, 2037',
+    odds: {
+        team1: 1.33,
+        x: 3.25,
+        team2: 6.5,
+    },
+};
+
+game.scored.forEach((player, index) => {
+    console.log(`Goal ${index + 1}: ${player}`);
+});
+
+let totalOdd = 0;
+for (const odd of Object.values(game.odds)) {
+    totalOdd += odd;
+}
+const averageOdd = totalOdd / Object.values(game.odds).length;
+console.log(`Average odd: ${averageOdd.toFixed(2)}`);
+
+console.log(`Odd of victory ${game.team1}: ${game.odds.team1}`);
+console.log(`Odd of draw: ${game.odds.x}`);
+console.log(`Odd of victory ${game.team2}: ${game.odds.team2}`);
+
+const scorers = {};
+game.scored.forEach(player => {
+    scorers[player] = (scorers[player] || 0) + 1;
+});
+console.log(scorers);
+
+    </SCript>
+</body>
+</html>
